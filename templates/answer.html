@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block v %}
+
+
+	{% if val == answer %}
+		<p>RIGHT </p>
+
+	{% elif val != answer %}
+		<p>WRONG </p>
+
+	{% endif %}
+
+	
+{% endblock %}
