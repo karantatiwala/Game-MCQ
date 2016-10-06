@@ -8,13 +8,16 @@
 	<hr>
 	<div>
 		{% block v %}
+
+			<form action="/ans" method="GET">
 			{% for x in a %}
 
-				<input type="radio" name="ans" >{{ x }}<br>
+				<input type="radio" name="ans">{{ x }}<br>
 
 			{% endfor %}
 
-			<input type="submit" name="submit" value="Submit"> 
+			<input type="submit" name="submit" value="Submit"><a href="anwer.html"></a>
+			</form>
 		{% endblock %}
 	</div>
 
