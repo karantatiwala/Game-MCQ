@@ -12,7 +12,7 @@ val = ""
 
 @app.route('/')
 def index():
-	return render_template("base.html")
+	return render_template("base.html", a=a)
 
 @app.route('/answer')
 def answer(a, submit, check):
