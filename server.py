@@ -1,30 +1,32 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from random import shuffle
 
 app = Flask(__name__)
 
 
-a = ["python", "c", "c++"]
 
-submit = False
-check = False
-val = ""
 
 @app.route('/')
 def index():
+	a = ["python", "c", "c++"]
+	print a
 	return render_template("base.html", a=a)
 
-@app.route('/answer')
-def answer(a, submit, check):
-
-	if(submit == True & check == True):
-		shuffle(a)
-		answer = a[0]
-	else:
-		return render_template("404.html")
 
 
-	return render_template("answer.html")
+@app.route('/answer', methods=['GET', 'POST'])			# transition frm post->get->post->get->post
+def answer():
+	a = ["python", "c", "c++"]
+	shuffle(a)
+	print a
+	answer = a[0]
+
+	print answer
+
+	if request.method == "POST":
+		val = request.form['ans']
+		print val
+		return render_template("answer.html", val=val, answer=answer)
 
 
 

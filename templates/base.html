@@ -9,14 +9,14 @@
 	<div>
 		{% block v %}
 
-			<form action="/ans" method="GET">
+			<form action="/answer" method="post">
 			{% for x in a %}
 
-				<input type="radio" name="ans">{{ x }}<br>
+				<input type="radio" name="ans" value="{{ x }}">{{ x }}<br>
 
 			{% endfor %}
 
-			<input type="submit" name="submit" value="Submit"><a href="anwer.html"></a>
+			<button type="submit">Submit</button>
 			</form>
 		{% endblock %}
 	</div>
